@@ -33,10 +33,11 @@ public class Moore extends JFrame {
         // TODO: uncomment ONE of this moore list of pairs and change it down below
         // List<Pair> moore1 = applyScaleAndOffset(moore(1), 100, 100);
         // List<Pair> moore3 = applyScaleAndOffset(moore(3), 100, 100);
-        List<Pair> moore3 = applyScaleAndOffset(moore(4), 50, 50);
+        //List<Pair> moore3 = applyScaleAndOffset(moore(4), 50, 50);
         // List<Pair> moore5 = applyScaleAndOffset(moore(5), 25, 50);
+        List<Pair> moore6 = applyScaleAndOffset(moore(6), 10, 50);
 
-        drawMoore(moore3, g);
+        drawMoore(moore6, g);
     }
 
     /**
@@ -161,7 +162,7 @@ public class Moore extends JFrame {
     static List<Pair> moore(int degree) {
         var instr = shortMooreStr(degree);
 
-        System.out.println(instr);
+        // System.out.println(instr);
 
         // starting at point (2^n - 1, 0)
         List<Pair> result = new ArrayList<>();
