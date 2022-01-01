@@ -32,12 +32,13 @@ public class Moore extends JFrame {
 
         // TODO: uncomment ONE of this moore list of pairs and change it down below
         // List<Pair> moore1 = applyScaleAndOffset(moore(1), 100, 100);
-        // List<Pair> moore3 = applyScaleAndOffset(moore(3), 100, 100);
+
+        List<Pair> moore2 = applyScaleAndOffset(moore(2), 200, 100);
         //List<Pair> moore3 = applyScaleAndOffset(moore(4), 50, 50);
         // List<Pair> moore5 = applyScaleAndOffset(moore(5), 25, 50);
-        List<Pair> moore6 = applyScaleAndOffset(moore(6), 10, 50);
+        // List<Pair> moore6 = applyScaleAndOffset(moore(6), 10, 50);
 
-        drawMoore(moore6, g);
+        drawMoore(moore2, g);
     }
 
     /**
@@ -58,6 +59,9 @@ public class Moore extends JFrame {
     public static void main(String[] args) {
 
         Moore moore = new Moore();
+
+        System.out.println("numOfCharsToAllocateRecursive(2) = " + numOfCharsToAllocateRecursive(2));
+        System.out.println("numOfCharsToAllocate(2) = " + numOfCharsToAllocate(2));
 
     }
 
@@ -88,7 +92,7 @@ public class Moore extends JFrame {
      * @return how many space to allocate for the char array
      */
     static long numOfCharsToAllocate(int n) {
-        return (long) (1/3 * (5*Math.pow(2, 2 * n + 1)));
+        return (long) ((5*Math.pow(2, 2 * n + 1) - 13) / 3);
     }
 
     /**
@@ -111,7 +115,7 @@ public class Moore extends JFrame {
         var temp = axiom;
 
         for (int i = 0; i < degree - 1; i++) {
-            long tempStrLen = numOfCharsToAllocateRecursive(i + 1);
+            long tempStrLen = numOfCharsToAllocate(i + 1);
             int k = 0;
             for (int j = 0; j < tempStrLen; j++) {
                 if (temp.charAt(k) == 'L') {
@@ -130,6 +134,7 @@ public class Moore extends JFrame {
 
             }
         }
+        System.out.println(result);
         return result;
     }
 
